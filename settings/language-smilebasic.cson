@@ -1,0 +1,5 @@
+'.source.prg':
+  'editor':
+    'commentStart':"'"
+    'increaseIndentPattern':'(\\b([tT][hH][eE][nN]|[eE][lL][sS][eE])\\b(?=\\s*$))|(\\b[fF][oO][rR]\\b(?!.*[nN][eE][xX][tT]\\b))|(\\b[wW][hH][iI][lL][eE]\\b(?!.*[wW][eE][nN][dD]\\b))|(\\b[rR][eE][pP][eE][aA][tT]\\b(?!.+[uU][nN][tT][iI][lL]\\b))|(\\b[dD][eE][fF]\\b(?!.+[eE][nN][dD]\\b))'
+    'decreaseIndentPattern':'^\\s*([eE][lL][sS][eE]|[eE][lL][sS][eE][iI][fF]|[eE][nN][dD][iI][fF]|[nN][eE][xX][tT]|[wW][eE][nN][dD]|[uU][nN][tT][iI][lL]|[eE][nN][dD])\\b'

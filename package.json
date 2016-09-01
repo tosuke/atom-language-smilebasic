@@ -1,0 +1,15 @@
+{
+  "name": "language-smilebasic",
+  "version": "1.0.0",
+  "description": "SmileBasicV3 language support in Atom",
+  "homepage": "https://github.com/Tosuke/atom-language-smilebasic",
+  "repository": "https://github.com/Tosuke/atom-language-smilebasic",
+  "bugs": {
+    "url": "https://github.com/Tosuke/atom-language-smilebasic"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0",
+    "node": "*"
+  },
+}

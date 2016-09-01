@@ -1,0 +1,263 @@
+'name':'SmileBasic'
+'scopeName':'source.prg'
+'fileTypes':[
+  'prg'
+  'bas'
+]
+
+'patterns':[
+  {
+    'include':'#all-patterns'
+  }
+]
+
+'repository':
+  'all-patterns':
+    'patterns':[
+      {
+        'include':'#comments'
+      }
+      {
+        'include':'#labels'
+      }
+      {
+        'include':'#keywords'
+      }
+      {
+        'include':'#functions'
+      }
+      {
+        'include':'#constants'
+      }
+      {
+        'include':'#literals'
+      }
+    ]
+  'comments':
+    'patterns':[
+      {
+        'comment':'Single-line'
+        'name':'comment.line.single-quote.smilebasic'
+        'begin':"'"
+        'end':'$'
+      }
+    ]
+  'literals':
+    'patterns':[
+      {
+        'comment':'Double-quoted string'
+        'name':'string.double-quote.smilebasic'
+        'begin':'"'
+        'end':'"|$'
+      }
+      {
+        'comment':'decimal integer'
+        'match':'\\b((?<!\\.)\\d+(?!\\.))([\\w@].*)?'
+        'captures':
+          '1': 'name':'constant.numeric.integer.decimal.smilebasic'
+          '2': 'patterns':['include':'#all-patterns']
+      }
+      {
+        'comment':'hex integer'
+        'match':'(&[hH]\\h+)([\\w@].*)?'
+        'captures':
+          '1': 'name':'constant.numeric.integer.hex.smilebasic'
+          '2': 'patterns':['include':'#all-patterns']
+      }
+      {
+        'comment':'binary integer'
+        'match':'(&[bB][01]+)([\\w@].*)?'
+        'captures':
+          '1': 'name':'constant.numeric.integer.binary.smilebasic'
+          '2': 'patterns':['include':'#all-patterns']
+      }
+      {
+        'comment':'decimal float'
+        'match':'\\b((?<!\\.)\\d+\\.\\d+(?!\\.))([\\w@].*)?'
+        'captures':
+          '1': 'name':'constant.numeric.integer.binary.smilebasic'
+          '2': 'patterns':['include':'#all-patterns']
+      }
+    ]
+  'labels':
+    'patterns':[
+      {
+        'match':'(?>[^\\w@]|^)(@[\\w]+)'
+        'captures':
+          '1': 'name':'entity.label.smilebasic'
+      }
+    ]
+  'keywords':
+    'patterns':[
+      {
+        'comment':'(if|then|else|endif|return)'
+        'match':'\\b([iI][fF]|[tT][hH][eE][nN]|[eE][lL][sS][eE]|[eE][nN][dD][iI][fF]|[rR][eE][tT][uU][rR][nN])\\b'
+        'captures':
+          '1': 'name':'keyword.control.smilebasic'
+      }
+      {
+        'comment':'(for|to|step|next|while|wend|repeat|until)'
+        'match':'(?:\\b|\\d)([fF][oO][rR]|[tT][oO]|[sS][tT][eE][pP]|[nN][eE][xX][tT]|[wW][hH][iI][lL][eE]|[wW][eE][nN][dD]|[rR][eE][pP][eE][aA][tT]|[uU][nN][tT][iI][lL])\\b'
+        'captures':
+          '1': 'name':'keyword.control.loop.smilebasic'
+      }
+      {
+        'comment':'(goto|gosub|on|break|continue)'
+        'match':'(?:\\b|\\d)([gG][oO][tT][oO]|[gG][oO][sS][uU][bB]|[oO][nN]|[bB][rR][eE][aA][kK]|[cC][oO][nN][tT][iI][nN][uU][eE])\\b'
+        'captures':
+          '1': 'name':'keyword.control.branch.smilebasic'
+      }
+      {
+        'comment':'(var|dim)'
+        'match':'(?:\\b|\\d)([vV][aA][rR]|[dD][iI][mM]|[eE][nN][dD])\\b'
+        'captures':
+          '1': 'name':'keyword.control.definition.smilebasic'
+      }
+      {
+        'comment':'option (strict|defint|tool)'
+        'match':'(?:\\b|\\d)([oO][pP][tT][iI][oO][nN])\\s?([sS][tT][rR][iI][cC][tT]|[dD][eE][fF][iI][nN][tT]|[tT][oO][oO][lL])?\\b'
+        'captures':
+          '1': 'name':'keyword.control.option.smilebasic'
+          '2': 'name':'entity.option.smilebasic'
+      }
+      {
+        'comment':'out'
+        'match':'(?:\\b|\\d)([oO][uU][tT])'
+        'captures':
+          '1': 'name':'keyword.control.other.smilebasic'
+      }
+      {
+        'name':'keyword.operator.assignment.smilebasic'
+        'match':'='
+      }
+      {
+        'name':'keyword.operator.arithmetic.smilebasic'
+        'comment':'+|-|*|/'
+        'match':'(\\+|\\-|\\*|/)'
+      }
+      {
+        'comment':'mod|div'
+        'match':'(?:\\b|\\d)([mM][oO][dD]|[dD][iI][vV])\\b'
+        'captures':
+          '1': 'name':'keyword.operator.arithmetic.smilebasic'
+      }
+      {
+        'comment':'not|and|or|xor'
+        'match':'(?:\\b|\\d)([nN][oO][tT]|[aA][nN][dD]|[oO][rR]|[xX][oO][rR])\\b'
+        'captures':
+          '1': 'name':'keyword.operator.bitop.smilebasic'
+      }
+      {
+        'name':'keyword.operator.bitop.smilebasic'
+        'match':'(>>|<<)'
+      }
+      {
+        'name':'keyword.operator.logical.smilebasic'
+        'comment':'!,&&,||'
+        'match':'(\\!|&&|\\|\\|)'
+      }
+      {
+        'name':'keyword.operator.comparison.smilebasic'
+        'match':'(==|!=|>=|<=|>|<)'
+      }
+    ]
+  'functions':
+    'patterns':[
+      {
+        'match':'\\b([cC][oO][mM][mM][oO][nN]\\s+)?([dD][eE][fF])(\\s+\\w+)?\\s*(([^:]*)|(\\(\\s*.*\\)))?'
+        'captures':
+          '1': 'name':'keyword.control.definition.smilebasic'
+          '2': 'name':'keyword.control.definition.smilebasic'
+          '3': 'name':'entity.name.function.smilebasic'
+          '4': 'patterns':[
+            {
+              'match':',?(.+)\\s*(?:\\[\\s*\\])?,?'
+              'captures':
+                '1': 'patterns':[
+                  {
+                    'include':'#keywords'
+                  }
+                  {
+                    'include':'#literals'
+                  }
+                  {
+                    'include':'#comments'
+                  }
+                  {
+                    'match':'[\\w]+[#$%]?'
+                    'name':'variable.parameter.smilebasic'
+                  }
+              ]
+            }
+          ]
+      }
+    ]
+  'constants':
+    'patterns':[
+      {
+        'comment':'#on, #off, #yes, #no, #true, #false'
+        'match':'(?:[^\\w#]|^)(#([oO][nN]|[oO][fF][fF]|[yY][eE][sS]|[nN][oO]|[tT][rR][uU][eE]|[fF][aA][lL][sS][eE]))\\b'
+        'captures':
+          '1': 'name':'constant.other.basic.smilebasic'
+      }
+      {
+        'comment':'#aqua, #black, #blue, #cyan, #fuchsia, #gray, #green, #lime, #magenta, #maroon, #navy, #olive, #purple, #red, #silver, #teal, #white, #yellow'
+        'match':'(?:[^\\w#]|^)(#([aA][qQ][uU][aA]|[bB][lL][aA][cC][kK]|[bB][lL][uU][eE]|[cC][yY][aA][nN]|[fF][uU][cC][hH][sS][iI][aA]|[gG][rR][aA][yY]|[gG][rR][eE][eE][nN]|[lL][iI][mM][eE]|[mM][aA][gG][eE][nN][tT][aA]|[mM][aA][rR][oO][oO][nN]|[nN][aA][vV][yY]|[oO][lL][iI][vV][eE]|[pP][uU][rR][pP][lL][eE]|[rR][eE][dD]|[sS][iI][lL][vV][eE][rR]|[tT][eE][aA][lL]|[wW][hH][iI][tT][eE]|[yY][eE][lL][lL][oO][wW]))\\b'
+        'captures':
+          '1': 'name':'constant.other.color.smilebasic'
+      }
+      {
+        'comment':'#tblack, #tmaroon, #tred, #tgreen, #tlime, #tolive, #tyellow, #tnavy, #tblue, #tpurple, #tmagenta, #tteal, #tcyan, #tgray, #twhite'
+        'match':'(?:[^\\w#]|^)(#[tT]([bB][lL][aA][cC][kK]|[mM][aA][rR][oO][oO][nN]|[rR][eE][dD]|[gG][rR][eE][eE][nN]|[lL][iI][mM][eE]|[oO][lL][iI][vV][eE]|[yY][eE][lL][lL][oO][wW]|[nN][aA][vV][yY]|[bB][lL][uU][eE]|[pP][uU][rR][pP][lL][eE]|[mM][aA][gG][eE][nN][tT][aA]|[tT][eE][aA][lL]|[cC][yY][aA][nN]|[gG][rR][aA][yY]|[wW][hH][iI][tT][eE]))\\b'
+        'captures':
+          '1': 'name':'constant.other.textcolor.smilebasic'
+      }
+      {
+        'comment':'#up, #down, #left, #right, #a, #b, #x, #y, #l, #r, #zl, #zr'
+        'match':'(?:[^\\w#]|^)(#([uU][pP]|[dD][oO][wW][nN]|[lL][eE][fF][tT]|[rR][iI][gG][hH][tT]|[aA]|[bB]|[xX]|[yY]|[lL]|[rR]|[zZ][lLrR]))\\b'
+        'captures':
+          '1': 'name':'constant.other.button.smilebasic'
+      }
+      {
+        'comments':'#trot, #trev'
+        'match':'(?:[^\\w#]|^)(#[tT]([rR][oO][tT](0|90|180|270)|[rR][eE][vV][hHvV]))\\b'
+        'captures':
+          '1': 'name':'constant.other.attribute.smilebasic'
+      }
+      {
+        'comments':'#spshow, #sprot, #sprev, #spadd'
+        'match':'(?:[^\\w#]|^)(#[sS][pP]([sS][hH][oO][wW]|[rR][oO][tT](0|90|180|270)|[rR][eE][vV][hHvV]|[aA][dD][dD]))\\b'
+        'captures':
+          '1': 'name':'constant.other.attribute.sprite.smilebasic'
+      }
+      {
+        'comments':'#bgrot, #bgrev'
+        'match':'(?:[^\\w#]|^)(#[bB][gG]([rR][oO][tT](0|90|180|270)|[rR][eE][vV][hHvV]))\\b'
+        'captures':
+          '1': 'name':'constant.other.attribute.background.smilebasic'
+      }
+      {
+        'comments':'#chkxy, #chkz, #chkuv, #chki, #chkr, #chks, #chkc, #chkv'
+        'match':'(?:[^\\w#]|^)(#[cC][hH][kK]([xX][yY]|[zZ]|[uU][vV]|[iI]|[rR]|[sS]|[cC]|[vV]))\\b'
+        'captures':
+          '1': 'name':'constant.other.mode.checker.smilebasic'
+      }
+      {
+        'comments':'#aopadd, #aopsub, #aopmul, #aopdiv, #aopmad, #aoplip, #aopclp'
+        'match':'(?:[^\\w#]|^)(#[aA][oO][pP]([aA][dD][dD]|[sS][uU][bB]|[mM][uU][lL]|[dD][iI][vV]|[mM][aA][dD]|[lL][iI][pP]|[cC][lL][pP]))\\b'
+        'captures':
+          '1': 'name':'constant.other.mode.aryop.smilebasic'
+      }
+      {
+        'comments':'#bqapf, #bqlpf, #bqhpf, #bqbpf, #bqbsf, #bqlsf, #bqhsf, #bqpeq'
+        'match':'(?:[^\\w#]|^)(#[bB][qQ]([aAlLhHbB][pP][fF]|[bB][sS][fF]|[lL][hH][sS][fF]|[pP][eE][qQ]))\\b'
+        'captures':
+          '1': 'name':'constant.other.mode.bqparam.smilebasic'
+      }
+      {
+        'comments':'#wfrect, #wfhamm, #wfhann, #wfblkm'
+        'match':'(?:[^\\w#]|^)(#[wW][fF]([rR][eE][cC][tT]|[hH][aA][mM][mM]|[hH][aA][nN][nN]|[bB][lL][kK][mM]))\\b'
+        'captures':
+          '1': 'name':'constant.other.mode.fftwfn.smilebasic'
+      }
+    ]
