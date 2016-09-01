@@ -1,6 +1,6 @@
 {
   "name": "language-smilebasic",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SmileBasicV3 language support in Atom",
   "homepage": "https://github.com/Tosuke/atom-language-smilebasic",
   "repository": "https://github.com/Tosuke/atom-language-smilebasic",
