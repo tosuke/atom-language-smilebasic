@@ -82,7 +82,7 @@
   'labels':
     'patterns':[
       {
-        'match':'(?>[^\\w@]|^)(@[\\w]+)'
+        'match':'(@[\\w]+)'
         'captures':
           '1': 'name':'entity.label.smilebasic'
       }
@@ -90,39 +90,39 @@
   'keywords':
     'patterns':[
       {
-        'comment':'(if|then|else|endif|return)'
-        'match':'\\b([iI][fF]|[tT][hH][eE][nN]|[eE][lL][sS][eE]|[eE][nN][dD][iI][fF]|[rR][eE][tT][uU][rR][nN])\\b'
+        'comment':'(if|then|else|elseif|endif|return)'
+        'match':'\\b([iI][fF]|[tT][hH][eE][nN]|[eE][lL][sS][eE]|[eE][lL][sS][eE][iI][fF]|[eE][nN][dD][iI][fF]|[rR][eE][tT][uU][rR][nN])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.control.smilebasic'
       }
       {
         'comment':'(for|to|step|next|while|wend|repeat|until)'
-        'match':'(?:\\b|\\d)([fF][oO][rR]|[tT][oO]|[sS][tT][eE][pP]|[nN][eE][xX][tT]|[wW][hH][iI][lL][eE]|[wW][eE][nN][dD]|[rR][eE][pP][eE][aA][tT]|[uU][nN][tT][iI][lL])\\b'
+        'match':'\\b([fF][oO][rR]|[tT][oO]|[sS][tT][eE][pP]|[nN][eE][xX][tT]|[wW][hH][iI][lL][eE]|[wW][eE][nN][dD]|[rR][eE][pP][eE][aA][tT]|[uU][nN][tT][iI][lL])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.control.loop.smilebasic'
       }
       {
         'comment':'(goto|gosub|on|break|continue)'
-        'match':'(?:\\b|\\d)([gG][oO][tT][oO]|[gG][oO][sS][uU][bB]|[oO][nN]|[bB][rR][eE][aA][kK]|[cC][oO][nN][tT][iI][nN][uU][eE])\\b'
+        'match':'\\b([gG][oO][tT][oO]|[gG][oO][sS][uU][bB]|[oO][nN]|[bB][rR][eE][aA][kK]|[cC][oO][nN][tT][iI][nN][uU][eE])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.control.branch.smilebasic'
       }
       {
         'comment':'(var|dim)'
-        'match':'(?:\\b|\\d)([vV][aA][rR]|[dD][iI][mM]|[eE][nN][dD])\\b'
+        'match':'\\b([vV][aA][rR]|[dD][iI][mM]|[eE][nN][dD])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.control.definition.smilebasic'
       }
       {
         'comment':'option (strict|defint|tool)'
-        'match':'(?:\\b|\\d)([oO][pP][tT][iI][oO][nN])\\s?([sS][tT][rR][iI][cC][tT]|[dD][eE][fF][iI][nN][tT]|[tT][oO][oO][lL])?\\b'
+        'match':'\\b([oO][pP][tT][iI][oO][nN])(?![#$%])\\s?([sS][tT][rR][iI][cC][tT]|[dD][eE][fF][iI][nN][tT]|[tT][oO][oO][lL])?\\b'
         'captures':
           '1': 'name':'keyword.control.option.smilebasic'
           '2': 'name':'entity.option.smilebasic'
       }
       {
-        'comment':'out'
-        'match':'(?:\\b|\\d)([oO][uU][tT])'
+        'comment':'out|data'
+        'match':'\\b([oO][uU][tT]|[dD][aA][tT][aA])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.control.other.smilebasic'
       }
@@ -137,13 +137,13 @@
       }
       {
         'comment':'mod|div'
-        'match':'(?:\\b|\\d)([mM][oO][dD]|[dD][iI][vV])\\b'
+        'match':'(?:\\b|\\d)([mM][oO][dD]|[dD][iI][vV])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.operator.arithmetic.smilebasic'
       }
       {
         'comment':'not|and|or|xor'
-        'match':'(?:\\b|\\d)([nN][oO][tT]|[aA][nN][dD]|[oO][rR]|[xX][oO][rR])\\b'
+        'match':'(?:\\b|\\d)([nN][oO][tT]|[aA][nN][dD]|[oO][rR]|[xX][oO][rR])(?![#$%])\\b'
         'captures':
           '1': 'name':'keyword.operator.bitop.smilebasic'
       }
@@ -164,7 +164,7 @@
   'functions':
     'patterns':[
       {
-        'match':'\\b([cC][oO][mM][mM][oO][nN]\\s+)?([dD][eE][fF])(\\s+\\w+)?\\s*(([^:]*)|(\\(\\s*.*\\)))?'
+        'match':'\\b([cC][oO][mM][mM][oO][nN]\\s+)?([dD][eE][fF])(?![#$%])(\\s+\\w+)?\\s*(([^:]*)|(\\(\\s*.*\\)))?\\b'
         'captures':
           '1': 'name':'keyword.control.definition.smilebasic'
           '2': 'name':'keyword.control.definition.smilebasic'
@@ -199,6 +199,11 @@
         'match':'(?:[^\\w#]|^)(#([oO][nN]|[oO][fF][fF]|[yY][eE][sS]|[nN][oO]|[tT][rR][uU][eE]|[fF][aA][lL][sS][eE]))\\b'
         'captures':
           '1': 'name':'constant.other.basic.smilebasic'
+      }
+      {
+        'comment':'true, false'
+        'match':'\\b([tT][rR][uU][eE]|[fF][aA][lL][sS][eE])\\b'
+        'name':'constant.other.boolean.smilebasic'
       }
       {
         'comment':'#aqua, #black, #blue, #cyan, #fuchsia, #gray, #green, #lime, #magenta, #maroon, #navy, #olive, #purple, #red, #silver, #teal, #white, #yellow'
